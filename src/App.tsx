@@ -24,9 +24,9 @@ export default function App() {
   };
 
 
-  const addCategory = (category) => {
-    setCategories(prevCategory => [...prevCategory, category])
-  }
+  // const addCategory = (category) => {
+  //   setCategories(prevCategory => [...prevCategory, category])
+  // }
 
   const exportToCSV = () => {
     const headers = ['ID', 'Type', 'Amount', 'Date', 'Category', 'Notes'];
