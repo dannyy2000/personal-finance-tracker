@@ -1,7 +1,6 @@
 # Personal Finance Tracker
-![Screenshot 2025-05-17 at 3 56 10 PM](https://github.com/user-attachments/assets/87331cf0-32bc-46db-86d9-4aca3b5622aa)
 
-![Finance Tracker Screenshot](./screenshot.png) *()*
+![Finance Tracker Screenshot](./src/Screenshot%202025-05-17%20at%203.56.10 PM.png)
 
 A comprehensive personal finance management application built with React, TypeScript, and Chart.js. Track your income and expenses with detailed categorization, filtering options, and visual analytics.
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import  { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import type { ChartOptions } from 'chart.js'
 import { Pie } from 'react-chartjs-2';
@@ -10,12 +10,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function App() {
   const [transactions, setTransactions] = useLocalStorage<Transaction[]>('transactions', []);
-  const [categories] = useLocalStorage<Category[]>('categories', [
-    { id: 1, name: 'Salary', type: 'income' },
-    { id: 2, name: 'Rent', type: 'expense' },
-    { id: 3, name: 'Groceries', type: 'expense' },
-    { id: 4, name: 'Freelance', type: 'income' }
-  ]);
+  const [categories, setCategories] = useLocalStorage<Category[]>('categories', []);
 
   const [filterType, setFilterType] = useState<'all' | 'income' | 'expense'>('all');
   const [filterCategory, setFilterCategory] = useState<number | 'all'>('all');
@@ -27,6 +22,11 @@ export default function App() {
   const deleteTransaction = (id: number) => {
     setTransactions(prev => prev.filter(t => t.id !== id));
   };
+
+
+  const addCategory = (category) => {
+    setCategories(prevCategory => [...prevCategory, category])
+  }
 
   const exportToCSV = () => {
     const headers = ['ID', 'Type', 'Amount', 'Date', 'Category', 'Notes'];
@@ -95,6 +95,15 @@ export default function App() {
     }
   };
 
+  useEffect(() => {
+    setCategories([
+      { id: 1, name: 'Salary', type: 'income' },
+      { id: 2, name: 'Rent', type: 'expense' },
+      { id: 3, name: 'Groceries', type: 'expense' },
+      { id: 4, name: 'Freelance', type: 'income' }
+    ])
+  })
+
   return (
     <div className="container mx-auto p-4 max-w-6xl">
       <h1 className="text-3xl font-bold mb-6 text-center">Personal Finance Tracker</h1>
@@ -147,6 +156,13 @@ export default function App() {
                     </option>
                   ))}
                 </select>
+                <button 
+                  onClick={() => {
+                    
+                  }}
+                  className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 text-white"
+                >Add category
+                </button>
               </div>
             </div>
 
