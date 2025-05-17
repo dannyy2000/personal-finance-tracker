@@ -10,7 +10,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function App() {
   const [transactions, setTransactions] = useLocalStorage<Transaction[]>('transactions', []);
-  const [categories, setCategories] = useLocalStorage<Category[]>('categories', [
+  const [categories] = useLocalStorage<Category[]>('categories', [
     { id: 1, name: 'Salary', type: 'income' },
     { id: 2, name: 'Rent', type: 'expense' },
     { id: 3, name: 'Groceries', type: 'expense' },
@@ -137,7 +137,6 @@ export default function App() {
                   <option value="expense">Expense</option>
                 </select>
                 <select
-                  value={filterCategory}
                   onChange={(e) => setFilterCategory(e.target.value === 'all' ? 'all' : parseInt(e.target.value))}
                   className="p-2 border rounded"
                 >
