@@ -113,8 +113,8 @@ export default function App() {
               <div className="flex space-x-2">
                 <button 
                   onClick={exportToCSV}
-                  className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
-                >
+                  className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 text-white"
+                >Download
                 </button>
               </div>
             </div>
